@@ -80,19 +80,18 @@
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>3.3.1</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-extension</artifactId>
 			<version>3.3.1</version>
-		</dependency>
-
+		</dependency> -->
 
 		<!--pagehelper -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
 			<version>1.2.10</version>
-			<exclusions>
+			 <exclusions>
 				<exclusion>
 					<artifactId>jsqlparser</artifactId>
 					<groupId>com.github.jsqlparser</groupId>
@@ -105,9 +104,9 @@
 					<artifactId>mybatis-spring</artifactId>
 					<groupId>org.mybatis</groupId>
 				</exclusion>
-			</exclusions>
+			</exclusions> 
 		</dependency>
-
+ -->
 
 		<dependency>
 			<groupId>com.alibaba</groupId>

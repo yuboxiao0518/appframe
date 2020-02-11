@@ -1,32 +1,30 @@
 package com.primeton.appframe.service.impl;
 
+import java.io.File;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.pagehelper.page.PageMethod;
 import com.primeton.appframe.common.annotation.ServiceLog;
 import com.primeton.appframe.common.pojo.AjaxResult;
 import com.primeton.appframe.common.pojo.PageAjax;
 import com.primeton.appframe.common.utils.AppUtil;
 import com.primeton.appframe.common.utils.DateUtil;
-import com.primeton.appframe.mapper.IArticleMapper;
 import com.primeton.appframe.mapper.IFileMapper;
-import com.primeton.appframe.model.IArticle;
 import com.primeton.appframe.model.IFile;
 import com.primeton.appframe.service.TechService;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.io.File;
-import java.util.List;
 @Service
-@AllArgsConstructor
 public class TechServiceImpl extends ServiceImpl<IFileMapper, IFile> implements TechService {
 
-    private final IFileMapper fileMapper;
+	@Autowired
+    private IFileMapper fileMapper;
 
     @ServiceLog("查询文件列表")
     public PageAjax<IFile> queryFilePage(PageAjax<IFile> page, IFile file) {
-        PageMethod.startPage(page.getPageNo(), page.getPageSize());
+//        PageMethod.startPage(page.getPageNo(), page.getPageSize());
         List<IFile> iFiles = fileMapper.selectList(Wrappers.query());
         return AppUtil.returnPage(iFiles);
     }

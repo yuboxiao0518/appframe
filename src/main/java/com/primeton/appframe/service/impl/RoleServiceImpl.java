@@ -1,9 +1,13 @@
 package com.primeton.appframe.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.pagehelper.page.PageMethod;
 import com.primeton.appframe.common.annotation.ServiceLog;
 import com.primeton.appframe.common.pojo.AjaxResult;
 import com.primeton.appframe.common.pojo.PageAjax;
@@ -12,14 +16,9 @@ import com.primeton.appframe.mapper.AuthRoleMapper;
 import com.primeton.appframe.mapper.AuthRoleOperationMapper;
 import com.primeton.appframe.model.AuthRole;
 import com.primeton.appframe.model.AuthRoleOperation;
-import com.primeton.appframe.model.AuthUser;
 import com.primeton.appframe.service.RoleService;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class RoleServiceImpl extends ServiceImpl<AuthRoleMapper, AuthRole> implements RoleService {
@@ -103,7 +102,7 @@ public class RoleServiceImpl extends ServiceImpl<AuthRoleMapper, AuthRole> imple
 
     @Override
     public PageAjax<AuthRole> queryPage(PageAjax<AuthRole> page, AuthRole role) {
-        PageMethod.startPage(page.getPageNo(), page.getPageSize());
+//        PageMethod.startPage(page.getPageNo(), page.getPageSize());
         List<AuthRole> list = baseMapper.selectList(Wrappers.query(role));
         return AppUtil.returnPage(list);
     }

@@ -1,15 +1,13 @@
 package com.primeton.appframe.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.baomidou.mybatisplus.annotation.TableName;
 
-@Table(name = "i_file")
+import lombok.Data;
+
+@TableName(value  = "i_file")
+@Data
 public class IFile {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	/**文件原名*/
 	private String filename;
@@ -26,53 +24,6 @@ public class IFile {
 	/**添加时间*/
 	private String addtime;
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getFilename() {
-		return filename;
-	}
-	public void setFilename(String filename) {
-		this.filename = filename;
-	}
-	public String getNowname() {
-		return nowname;
-	}
-	public void setNowname(String nowname) {
-		this.nowname = nowname;
-	}
-	public String getSavepath() {
-		return savepath;
-	}
-	public void setSavepath(String savepath) {
-		this.savepath = savepath;
-	}
-	public String getUrl() {
-		return url;
-	}
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	public String getFiletype() {
-		return filetype;
-	}
-	public void setFiletype(String filetype) {
-		this.filetype = filetype;
-	}
-	public long getFilesize() {
-		return filesize;
-	}
-	public void setFilesize(long filesize) {
-		this.filesize = filesize;
-	}
-	public String getAddtime() {
-		return addtime;
-	}
-	public void setAddtime(String addtime) {
-		this.addtime = addtime;
-	}
+	
 	
 }

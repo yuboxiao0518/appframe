@@ -1,9 +1,17 @@
 package com.primeton.appframe.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
+
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.pagehelper.page.PageMethod;
 import com.primeton.appframe.common.Constant;
 import com.primeton.appframe.common.annotation.ServiceLog;
 import com.primeton.appframe.common.pojo.AjaxResult;
@@ -18,14 +26,8 @@ import com.primeton.appframe.mapper.AuthUserMapper;
 import com.primeton.appframe.model.AuthRole;
 import com.primeton.appframe.model.AuthUser;
 import com.primeton.appframe.service.UserService;
-import lombok.AllArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.*;
+import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class UserServiceImpl extends ServiceImpl<AuthUserMapper,AuthUser> implements UserService {
@@ -37,7 +39,7 @@ public class UserServiceImpl extends ServiceImpl<AuthUserMapper,AuthUser> implem
     @Override
     @ServiceLog("查询用户列表")
     public PageAjax<AuthUser> queryPage(PageAjax<AuthUser> page, AuthUser user) {
-        PageMethod.startPage(page.getPageNo(), page.getPageSize());
+//        PageMethod.startPage(page.getPageNo(), page.getPageSize());
         List<AuthUser> list = userMapper.queryList(user);
         return AppUtil.returnPage(list);
     }

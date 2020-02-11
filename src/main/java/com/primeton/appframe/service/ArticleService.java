@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.primeton.appframe.common.pojo.PageAjax;
 import com.primeton.appframe.model.IArticle;
 
-import javax.jnlp.IntegrationService;
 
 public interface ArticleService extends IService<IArticle> {
 

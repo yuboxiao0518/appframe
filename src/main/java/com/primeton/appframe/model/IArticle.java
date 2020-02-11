@@ -1,15 +1,13 @@
 package com.primeton.appframe.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.baomidou.mybatisplus.annotation.TableName;
 
-@Table(name = "i_article")
+import lombok.Data;
+
+@TableName(value = "i_article")
+@Data
 public class IArticle {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	/**用户id*/
 	private Integer uid;
@@ -24,47 +22,5 @@ public class IArticle {
 	/**发表时间*/
 	private String posttime;
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public Integer getUid() {
-		return uid;
-	}
-	public void setUid(Integer uid) {
-		this.uid = uid;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getColor() {
-		return color;
-	}
-	public void setColor(String color) {
-		this.color = color;
-	}
-	public String getCover() {
-		return cover;
-	}
-	public void setCover(String cover) {
-		this.cover = cover;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public String getPosttime() {
-		return posttime;
-	}
-	public void setPosttime(String posttime) {
-		this.posttime = posttime;
-	}
 	
 }
