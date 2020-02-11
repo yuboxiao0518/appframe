@@ -1,5 +1,6 @@
 package com.primeton.appframe.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import lombok.Data;
@@ -8,9 +9,10 @@ import lombok.Data;
 @Data
 public class IArticle {
 
-	private Integer id;
+	@TableId
+	private String id;
 	/**用户id*/
-	private Integer uid;
+	private String uid;
 	/**标题*/
 	private String title;
 	/**标题颜色*/

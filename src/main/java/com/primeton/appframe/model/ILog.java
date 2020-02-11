@@ -1,5 +1,7 @@
 package com.primeton.appframe.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import lombok.Data;
@@ -8,7 +10,8 @@ import lombok.Data;
 @Data
 public class ILog {
 
-	private Integer id;
+	@TableId(type = IdType.ASSIGN_UUID)
+	private String id;
 	/**请求用户*/
 	private String username;
 	/**请求描述*/
