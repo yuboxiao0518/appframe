@@ -1,0 +1,32 @@
+#tomcat访问端口
+server:
+  port: 8010
+  
+#数据源配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.13.103.1:3306/trading
+    username: root
+    password: Trading@it1851 
+    
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: assign-uuid
+
+global:
+  upload:
+    path: /upload
+    docBase: /upload/docBase
+    
+    
+pagehelper:
+  reasonable: false # 禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据
+  support-methods-arguments: true
+  params: count=countSql
+  row-bounds-with-count: true
+  helper-dialect: mysql
+
+ 

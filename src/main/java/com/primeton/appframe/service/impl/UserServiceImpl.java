@@ -11,7 +11,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.pagehelper.page.PageMethod;
 import com.primeton.appframe.common.Constant;
 import com.primeton.appframe.common.annotation.ServiceLog;
 import com.primeton.appframe.common.pojo.AjaxResult;
@@ -39,7 +41,7 @@ public class UserServiceImpl extends ServiceImpl<AuthUserMapper,AuthUser> implem
     @Override
     @ServiceLog("查询用户列表")
     public PageAjax<AuthUser> queryPage(PageAjax<AuthUser> page, AuthUser user) {
-//        PageMethod.startPage(page.getPageNo(), page.getPageSize());
+        PageMethod.startPage(page.getPageNo(), page.getPageSize());
         List<AuthUser> list = userMapper.queryList(user);
         return AppUtil.returnPage(list);
     }

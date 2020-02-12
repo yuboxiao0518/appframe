@@ -3,8 +3,7 @@ package com.primeton.appframe.common.pojo;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
-
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.github.pagehelper.Page;
 
 /**
  * 封装分页请求结果
@@ -71,20 +70,20 @@ public class PageAjax<T> implements Serializable {
     public PageAjax(List<T> list, int navigatePages) {
         if (list instanceof Page) {
             Page page = (Page) list;
-            this.pageNo = (int) page.getCurrent();
-            this.pageSize = (int) page.getSize();
+            this.pageNo = page.getPageNum();
+            this.pageSize = page.getPageSize();
 //            this.orderBy = page.getOrderBy();
 
-            this.pages = (int) page.getPages();
-            this.rows = (List<T>) page;
-            this.size = (int) page.getCurrent();
+            this.pages = page.getPages();
+            this.rows = page;
+            this.size = page.size();
             this.total = page.getTotal();
             //由于结果是>startRow的，所以实际的需要+1
             if (this.size == 0) {
                 this.startRow = 0;
                 this.endRow = 0;
             } else {
-                this.startRow = (int) (page.offset() + 1);
+                this.startRow = page.getStartRow() + 1;
                 //计算实际的endRow（最后一页的时候特殊）
                 this.endRow = this.startRow - 1 + this.size;
             }

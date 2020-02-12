@@ -15,13 +15,6 @@
         <button id="searchBtn" class="btn btn-labeled btn-info" onclick="javascript:formSubmit();"><span class="btn-label icon fa fa-search"></span>搜索</button>
     </div>
   </div>
-  <div class="container">
-		<div class="progress progress-striped">
-  			<div class="progress-bar progress-bar-primary" id="processbar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-    			<span id="aa">80% 完成</span>
-  			</div>
-		</div>
-	</div>
 </div>
 <div class="openAppGrid">
 	<div id="openAppGrid"></div>
@@ -59,16 +52,4 @@
             }
         });
     });
-    var total=10000;
-    var breaker=10;
-    var turn=100/(total/breaker);
-    var progress=0;
-    var timer = setInterval(function(){
-        progress=progress+turn;
-        $("#aa").html(progress+"% 完成");
-        $("#processbar").attr("style", "width:"+progress+"%");
-        if (progress>=100) {
-            clearInterval(timer);
-        }
-    }, breaker);
 </script>

@@ -2,11 +2,13 @@ package com.primeton.appframe.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.pagehelper.page.PageMethod;
 import com.primeton.appframe.common.Constant;
 import com.primeton.appframe.common.MapperKey;
 import com.primeton.appframe.common.annotation.Authority;
 import com.primeton.appframe.common.pojo.PageAjax;
 import com.primeton.appframe.common.utils.AnnotationUtil;
+import com.primeton.appframe.common.utils.AppUtil;
 import com.primeton.appframe.common.utils.JsonConvertUtil;
 import com.primeton.appframe.common.utils.MD5Util;
 import com.primeton.appframe.mapper.AuthOperationMapper;
@@ -15,6 +17,7 @@ import com.primeton.appframe.mapper.AuthUserMapper;
 import com.primeton.appframe.model.AuthOperation;
 import com.primeton.appframe.model.AuthRole;
 import com.primeton.appframe.model.AuthUser;
+import com.primeton.appframe.model.IArticle;
 import com.primeton.appframe.service.OperationService;
 import lombok.AllArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
@@ -182,6 +185,8 @@ public class OperationServiceImpl extends ServiceImpl<AuthOperationMapper,AuthOp
 
     @Override
     public PageAjax<AuthOperation> queryPage(PageAjax<AuthOperation> page, AuthOperation operation) {
-        return null;
+    	PageMethod.startPage(page.getPageNo(), page.getPageSize());
+        List<AuthOperation> list = baseMapper.selectList(Wrappers.query(operation));
+        return AppUtil.returnPage(list);
     }
 }

@@ -13,12 +13,12 @@
     $(function (){
         $("#openAppGrid").sgrid({
             columns:[
-                {field:"id",text:"文章ID", width: 40},
-                {field:"uid", text:"用户ID", width: 40},
-                {field:"cover",text:"封面",style:"text-align:center",width: 80,formatter:function(index, content, data){
+                {field:"id",text:"文章ID"},
+                {field:"uid", text:"用户ID"},
+                {field:"cover",text:"封面",style:"text-align:center",formatter:function(index, content, data){
                     return "<img src='" + content + "' height='20px'/>";
                 }},
-                {field:"title", text:"文章标题",width: 200,limit:15,formatter:function(index, content, data){
+                {field:"title", text:"文章标题",limit:15,formatter:function(index, content, data){
                     return "<font color='" + data.color + "'>" + content + "</font>";
                 }},
                 {field:"content", text:"文章内容",limit:15,formatter:function(index, content, data){

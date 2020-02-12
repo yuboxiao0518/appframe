@@ -21,6 +21,7 @@ import com.primeton.appframe.model.AuthRole;
 import com.primeton.appframe.model.AuthUser;
 import com.primeton.appframe.service.RoleService;
 import com.primeton.appframe.service.UserService;
+import com.github.pagehelper.Page;
 
 /**
  * 

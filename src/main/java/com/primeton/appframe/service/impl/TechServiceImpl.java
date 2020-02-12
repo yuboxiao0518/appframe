@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.pagehelper.page.PageMethod;
 import com.primeton.appframe.common.annotation.ServiceLog;
 import com.primeton.appframe.common.pojo.AjaxResult;
 import com.primeton.appframe.common.pojo.PageAjax;
@@ -24,7 +25,7 @@ public class TechServiceImpl extends ServiceImpl<IFileMapper, IFile> implements 
 
     @ServiceLog("查询文件列表")
     public PageAjax<IFile> queryFilePage(PageAjax<IFile> page, IFile file) {
-//        PageMethod.startPage(page.getPageNo(), page.getPageSize());
+        PageMethod.startPage(page.getPageNo(), page.getPageSize());
         List<IFile> iFiles = fileMapper.selectList(Wrappers.query());
         return AppUtil.returnPage(iFiles);
     }
